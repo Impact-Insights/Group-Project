@@ -56,9 +56,9 @@ messy_data.at[7, 'Joining Date'] = pd.to_datetime(messy_data.at[7, 'Joining Date
  
 print(messy_data, "\n\n")
 messy_data['Age'] = messy_data['Age'].astype('Int64')
-
+sorted_data = messy_data.sort_values(by='ID', ascending=True)
 
 #SAVING THE CLEANED DATA TO A CSV FILE.
 print("The Cleaned Data \n\n")
 print(messy_data)
-cleaned_data = messy_data.to_csv('cleaned_data.csv', index = False)
+cleaned_data = sorted_data.to_csv('cleaned_data.csv', index = False)
