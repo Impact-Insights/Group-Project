@@ -3,7 +3,8 @@ import numpy as np
 
 
 #Understanding the Data.
-messy_data = pd.read_csv('https://raw.githubusercontent.com/Impact-Insights/Group-Project/refs/heads/main/DMD%20Data%20Group%201%20W_02%20Submission/messy_dataset.csv?token=GHSAT0AAAAAAC7CHSQJ5GDAFSWU6MYQ2L2YZ5W2RFA')
+#messy_data = pd.read_csv('https://raw.githubusercontent.com/Impact-Insights/Group-Project/refs/heads/main/DMD%20Data%20Group%201%20W_02%20Submission/messy_dataset.csv?token=GHSAT0AAAAAAC7CHSQJ5GDAFSWU6MYQ2L2YZ5W2RFA')
+messy_data = pd.read_csv('messy_data.csv')
 
 print("Messy Data\n\n")
 print(messy_data.head(), "\n\n")
@@ -15,7 +16,7 @@ print(messy_data.info(), "\n\n")
 print(messy_data.columns, "\n\n")
 
 
-# WORKING WITH THE Age COLUMN [Filling Nulls with the Mean of the coumn, Data Type Change]
+# WORKING WITH THE Age COLUMN [Filling Nulls with the Mean of the column, Data Type Change]
 messy_data['Age'] = messy_data['Age'].fillna(0)
 
 for column in messy_data.columns:
@@ -24,7 +25,7 @@ for column in messy_data.columns:
 messy_data['Age'] = round(pd.to_numeric(messy_data['Age'], downcast='integer', errors='coerce'), 0)
 
 
-# WORKING ON THE Email COLUMN [Droping Duplicates, Droping Nulls, Standardization] 
+# WORKING ON THE Email COLUMN [Dropping Duplicates, Dropping Nulls, Standardization] 
 messy_data['Email'] = messy_data['Email'].drop_duplicates()
 
 messy_data = messy_data.dropna()
